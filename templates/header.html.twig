@@ -1,0 +1,131 @@
+
+
+<!--header start-->
+		<section class="header">
+			<div class="container">	
+				<div class="header-left">
+					<ul class="pull-left">
+						<li>
+							<a href="tel: 34677360757">
+								<i class="fa fa-phone" aria-hidden="true"></i> +34 677 36 07 57
+							</a>
+						</li>
+						<li>
+							<a href="mailto: margotpereira@hotmail.com">
+								<i class="fa fa-envelope" aria-hidden="true"></i>margotpereira@hotmail.com								
+							</a>
+						</li>							
+						<li> 													
+							
+							{% if mensaje is defined %}	
+								{% if tipo == 'acierto' %}
+									<div class="acierto">								
+										&nbsp; {{ mensaje}} &nbsp;
+									</div>									
+								{% else %}
+									<div class="error">								
+										&nbsp; {{ mensaje}} &nbsp;
+									</div>
+								{% endif %}												  
+							{% endif %}	
+													
+						</li>	
+					</ul><!--/ul-->
+				</div><!--/.header-left -->												
+
+				<div class="header-right pull-right">
+					<ul>
+						<li class="reg">
+							<a href="#" data-toggle="modal" data-target="#registrarUsuario">
+								Registrarse
+							</a>
+								/
+							<a href="#" data-toggle="modal" data-target="#iniciarSesion">
+								Iniciar sesión
+							</a>
+							
+							<!-- small modal - REGISTRARSE  -->
+							<div class="modal fade bs-example-modal-sm" id="registrarUsuario" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											 	<span aria-hidden="true">
+											 		<i class="fa fa-close"></i>
+											 	</span>
+											 </button> 
+											<h4 class="modal-title" id="registrarUsuario">
+												Registrarse
+											</h4> 
+											<form class="sm-frm" style="padding:25px" method="POST" action="{{ path('registrarUsuario') }}" autocomplete="off">
+												
+												<label>Email :</label>
+												<input name="email" type="text" class="form-control" placeholder="Email">
+												<br>
+												<label>Contraseña :</label>
+												<input name="keyword" type="text" class="form-control" placeholder="Contraseña">
+												<!--
+												<label>Rol :</label>
+												<input name="rol" type="text" class="form-control" placeholder="Rol (user)">
+												-->
+												<button style="background-color: #034153; color:  #80d5f0;	border-color: #034153;" type="submit" class="btn btn-default pull-right"> Enviar </button>
+												
+											</form>
+										</div>
+									</div>
+								</div>
+							</div>
+							
+							<!-- large modal -INICIAR SESIÓN-->
+							<div class="modal fade bs-example-modal-lg" id="iniciarSesion" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+											 	<span aria-hidden="true">
+											 		<i class="fa fa-close"></i>
+											 	</span>
+											</button>  
+											<h4 class="modal-title" id="iniciarSesion">
+												Iniciar sesión
+											</h4> 
+                                           
+											<form method="POST" class="lg-frm" style="padding:25px" action="{{ path('iniciarSesion') }}" autocomplete="off">
+												
+												<label>Email :</label>
+												<input name="email" type="text" class="form-control" placeholder="Email">
+												<br>
+												<label>Contraseña :</label>
+												<input name="keyword" type="text" class="form-control" placeholder="Contraseña">
+												<button style="background-color: #034153; color:  #80d5f0;	border-color: #034153;" type="submit" class="btn btn-default pull-right"> Enviar </button>
+																								                                           																						
+											</form>											
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</li><!--/li -->
+
+						<li>
+						{% if rolUsuario is defined %}		
+							<div class="acierto">																								
+								&nbsp; rol usuario: {{ rolUsuario }} &nbsp; 
+							</div>								
+						{% endif %}	
+						</li>
+
+						<li>
+							<div class="social-icon">
+								<ul>																			
+									<li><a href="https://www.facebook.com/javier.serrano.3760"><i class="fa fa-facebook"></i></a></li>									
+									<li><a href="https://twitter.com/JavierSerranoSa"><i class="fa fa-twitter"></i></a></li>
+								</ul><!--/.ul -->
+							</div><!--/.social-icon -->
+						</li><!--/li -->
+					</ul><!--/ul -->
+				</div><!--/.header-right -->
+			</div><!--/.container -->				
+
+		</section><!--/.header-->	
+		<!--header end--

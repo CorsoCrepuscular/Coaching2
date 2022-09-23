@@ -1,0 +1,129 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Formulario Carro
+{% endblock %}
+
+{% block body %}
+
+<!--- FORMULARIO CARRO - INICIO ******************************************************************************************************* -->
+<section class="about-us">
+<h2 style="text-align: center">Forma de pago</h2>
+<div class="container">
+	<div class="row align-items-center">  	
+  			
+<form action="{{ path('comprobarDni') }}" method="POST" autocomplete="off">
+
+  <div style="width: 800px; margin: auto; color: #034153" class="form-group">
+
+{#}
+    {% if mensaje is defined %}
+	
+		{% if tipo == 'acierto' %}
+			<div class="acierto">								
+				&nbsp; {{ mensaje}} &nbsp;
+			</div>									
+		{% else %}
+			<div class="error">								
+				&nbsp; {{ mensaje}} &nbsp;
+			</div>
+		{% endif %}												  
+        
+    {% endif %}
+    #}
+
+    <br>
+    <label  for="importe">Importe total (euros):</label>
+
+    <input type="text" class="form-control" name="importe" aria-describedby="emailHelp" placeholder="Importe total" value="{{importe}}">
+    <br>    
+
+    <label for="fechaCarro">Fecha: </label>
+    <input type="text" class="form-control" name="fechaCarro" aria-describedby="emailHelp" placeholder="dd/mm/aaaa">
+    <br>
+
+    <label for="modoPagoCarro">Modo Pago: </label>
+    <br>   
+    <input type="radio" id="contadoPago" name="modoPagoCarro" value="Contado">
+    <label for="contadoPago">Contado</label><br>
+    <input type="radio" id="tarjetaPago" name="modoPagoCarro" value="Tarjeta">
+    <label for="tarjetaPago">Tarjeta de débito</label><br>
+    <input type="radio" id="paypalPago" name="modoPagoCarro" value="Paypal">
+    <label for="paypalPago">Paypal</label> 
+    <br><br>
+
+    <label for="cuentaPagoCarro">Cuenta de cargo: </label>
+    <input type="text" class="form-control" name="cuentaPagoCarro" aria-describedby="emailHelp" placeholder="Número de cuenta de cargo">
+    <br>
+
+    <label for="numeroFacturaCarro">Número de factura: </label>
+    <input type="text" class="form-control" name="numeroFacturaCarro" aria-describedby="emailHelp" placeholder="Factura">
+    <br> 
+    <!--
+    <label for="dniCliente">DNI de cliente: </label>
+    <input type="number" class="form-control" name="dniCliente" aria-describedby="emailHelp" placeholder="DNI de cliente (sin letra)">    
+    <br>  
+    -->
+    <label>¿Es cliente?</label>
+    <br>
+    <input type="radio" id="esCliente" name="esCliente" value="si">
+    <label for="esCliente">Si</label><br>
+    <label for="dniCliente">DNI de cliente: </label>
+    <input type="number" class="form-control" name="dniCliente" aria-describedby="emailHelp" placeholder="DNI de cliente (sin letra)">    
+    <br> 
+
+
+    <input type="radio" id="esCliente" name="esCliente" value="no">
+    <label for="esCliente">No</label><br>
+    <br>
+
+
+
+
+
+
+
+
+
+    <div style="text-align: center;">
+        <button  type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+  </div>
+</form>
+</div>
+</div>
+</div>
+</section class="about-us">
+  <!-- JQUERY LINK -->
+
+		<script src="assets/js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        
+        <!--modernizr.min.js-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>		
+		
+		<!--bootstrap.min.js-->
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="assets/js/bootsnav.js"></script>
+		
+		<!-- for manu -->
+		<script src="assets/js/jquery.hc-sticky.min.js" type="text/javascript"></script>		
+		<!-- vedio player js -->
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+        <!--owl.carousel.js-->
+        <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+		
+		<!-- counter js -->
+		<script src="assets/js/jquery.counterup.min.js"></script>
+		<script src="assets/js/waypoints.min.js"></script>
+		
+        <!--Custom JS-->
+        <script type="text/javascript" src="assets/js/jak-menusearch.js"></script>
+        <script type="text/javascript" src="assets/js/custom.js"></script>
+
+{% endblock %}

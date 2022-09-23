@@ -1,0 +1,89 @@
+<html>
+<head></head>
+<body bgcolor: #ddf1f7;>
+    
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+<section style="background-color: #ddf1f7;" class="about-us">
+	<div class="container">
+		<div class="row justify-content-around">
+    		<div class="col-12"> 	
+
+
+<form action="{{ path('verHome') }}" method="POST" >
+<br>
+    <div style="text-align: center;">
+        <button style="background-color: #036b8a; border-color: #036b8a; color: #ddf1f7 ; margin: auto;" type="submit; " class="btn btn-primary">&nbsp;&nbsp;Volver&nbsp;</button>   <!-- Azul claro -->
+    </div>
+</form>
+
+<h2 style="text-align: center;"><strong> COMUNIDAD DE MADRID </strong></h2>
+<h3 style="text-align: center;"> Inscripciones en el registro de Uniones de Hecho </h3>
+<br>        
+
+        <table class="table table-striped">
+            <thead style="color: #1c6074;">    
+                <th> Certificado año </th>
+                <th> Motivo solicitud </th>  
+                <th> Certificado mes  </th>  
+                <th> Número de certificados </th>
+            
+            </thead>
+            <tbody>
+                {% for d in datosUniones %} 
+                    
+                        <tr>                      
+                            <td> {{ d.certificado_año       }} </td>  
+                            <td> {{ d.motivos_solicitud     }} </td> 
+                            <td> {{ d.certificado_mes       }} </td>                
+                            <td> {{ d.numero_certificados   }} </td>
+                        </tr>            
+                    {% endfor %}
+
+    </tbody>
+</table>
+</div>
+
+</section >
+			</div >
+				</div >
+    				</div> 
+
+
+
+<!-- JQUERY LINK -->
+
+		<!-- JQUERY LINK -->
+
+		<script src="assets/js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        
+        <!--modernizr.min.js-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>		
+		
+		<!--bootstrap.min.js-->
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="assets/js/bootsnav.js"></script>
+		
+		<!-- for manu -->
+		<script src="assets/js/jquery.hc-sticky.min.js" type="text/javascript"></script>		
+		<!-- vedio player js -->
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+        <!--owl.carousel.js-->
+        <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+		
+		<!-- counter js -->
+		<script src="assets/js/waypoints.min.js"></script>
+		
+        <!--Custom JS-->
+        <script type="text/javascript" src="assets/js/jak-menusearch.js"></script>
+        <script type="text/javascript" src="assets/js/custom.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,105 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Cliente
+{% endblock %}
+
+{% block body %}
+
+<!--- FORMULARIO CLIENTE - INICIO ******************************************************************************************************* -->
+<section class="about-us">
+<h2 style="text-align: center">Datos cliente</h2>
+<br>
+<div class="container">
+	<div class="row align-items-center">  				
+  			
+<form action="{{ path('crearCliente') }}" method="POST" autocomplete="off">
+
+  <div style="width: 800px; margin: auto;" class="form-group">
+
+    <input id="importe" name="importe" type="hidden" value="{{importe}}">
+
+    <label style="color: #034153" for="dniCliente">DNI: </label>
+    <input type="text" class="form-control" name="dniCliente" value="{{dniNuevo}}" aria-describedby="emailHelp" placeholder="DNI del cliente (sin letra)">
+    <br> 
+
+    <br>
+    <label style="color: #034153" for="nombreCliente">Nombre: </label>
+    <input type="text" class="form-control" name="nombreCliente" aria-describedby="emailHelp" placeholder="Nombre">
+    <br>    
+
+    <label style="color: #034153" for="apellidosCliente">Apellidos: </label>
+    <input type="text" class="form-control" name="apellidosCliente" aria-describedby="emailHelp" placeholder="Apellidos">
+    <br>
+
+    <label style="color: #034153" for="calleCliente">Calle: </label>
+    <input type="text" class="form-control" name="calleCliente" aria-describedby="emailHelp" placeholder="Calle">
+    <br>
+
+    <label style="color: #034153" for="numeroCliente">Número: </label>
+    <input type="number" class="form-control" name="numeroCliente" aria-describedby="emailHelp" placeholder="Número">
+    <br>
+
+    <label style="color: #034153" for="localidadCliente">Localidad: </label>
+    <input type="text" class="form-control" name="localidadCliente" aria-describedby="emailHelp" placeholder="Localidad">
+    <br>
+
+    <label style="color: #034153" for="provinciaCliente">Provincia: </label>
+    <input type="text" class="form-control" name="provinciaCliente" aria-describedby="emailHelp" placeholder="Provincia">
+    <br>
+
+    <label style="color: #034153" for="paisCliente">País: </label>
+    <input type="text" class="form-control" name="paisCliente" aria-describedby="emailHelp" placeholder="País">
+    <br>
+
+    <label style="color: #034153" for="telefonoCliente">Teléfono: </label>
+    <input type="text" class="form-control" name="telefonoCliente" aria-describedby="emailHelp" placeholder="Teléfono">
+    <br>
+
+    <label style="color: #034153" for="emailCliente">Email: </label>
+    <input type="text" class="form-control" name="emailCliente" aria-describedby="emailHelp" placeholder="Email">
+    <br>
+
+    <div style="text-align: center;">
+        <button style="background-color: #034153;" type="submit" class="btn btn-primary">Guardar</button>
+    </div>
+
+  </div>
+</form>
+</div>
+</div>
+</div>
+</section class="about-us">
+  <!-- JQUERY LINK -->
+
+		<script src="assets/js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        
+        <!--modernizr.min.js-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>		
+		
+		<!--bootstrap.min.js-->
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="assets/js/bootsnav.js"></script>
+		
+		<!-- for manu -->
+		<script src="assets/js/jquery.hc-sticky.min.js" type="text/javascript"></script>		
+		<!-- vedio player js -->
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+        <!--owl.carousel.js-->
+        <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+		
+		<!-- counter js -->
+		<script src="assets/js/jquery.counterup.min.js"></script>
+		<script src="assets/js/waypoints.min.js"></script>
+		
+        <!--Custom JS-->
+        <script type="text/javascript" src="assets/js/jak-menusearch.js"></script>
+        <script type="text/javascript" src="assets/js/custom.js"></script>
+
+{% endblock %}

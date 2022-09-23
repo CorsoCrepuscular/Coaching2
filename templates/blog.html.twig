@@ -1,0 +1,181 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Blog
+{% endblock %}
+
+{% block body %}					
+
+
+
+		<!--BLOG-INICIO-->
+		<!--nwes start -->
+		<section  class="news">
+			<div class="container">
+				<div class="news-details">
+					<div class="section-header text-center">
+						<h2>blog</h2>
+						<br>
+						{% if rolUsuario == 'admin' %}																																					
+							<a style="font-weight: bold" href="#" data-toggle="modal" data-target="#agregarEntrada">Añadir entrada</a> 
+						{% endif %}	
+
+						<!-- modal- AÑADIR-ENTRADA-INICIO -->
+						<div class="modal fade bs-example-modal-lg" id="agregarEntrada" tabindex="-1" role="dialog" aria-labelledby="agregarEvento">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											
+											<h4 class="modal-title" id="agregarEntrada">
+												Añadir entrada
+											</h4> 
+											<form class="sm-frm" style="padding:25px" method="POST" action="{{ path('agregarEntrada') }}">
+														
+												<label>Título :</label>
+												<input name="tituloEntrada" type="text" class="form-control" placeholder="Título">
+												<label>Texto :</label>												
+												<input name="textoEntrada" type="text" class="form-control" placeholder="Texto">
+												<label>Url foto :</label>												
+												<input name="urlEntrada" type="text" class="form-control" placeholder="Url entrada">	
+												
+														
+												<button type="submit" class="btn btn-default pull-right"> Enviar </button>
+											</form>
+										</div>
+									</div>
+								</div>
+						</div>
+						<!--  modal - AÑADIR-ENTRADA-FIN -->	
+
+
+
+
+						
+					</div><!--/.section-header-->
+					<div class="news-card news-card-pb-25">
+							<div class="row">
+								<div class="col-md-4 col-sm-6">
+									<div class="single-news-box">
+										<div class="news-box-bg">
+											<img src="assets/images/blog/bl1.jpg" alt="blog image">
+											<div class="isotope-overlay">
+												<a href="blog_single.html">
+													<span class="lnr lnr-link"></span>													
+												</a>
+											</div>
+										</div><!--/.team-box-bg-->
+										<div class="news-box-inner">
+											<h3>
+												<a href="{{ path('verBlogSingle') }}">
+													The Pros and Cons of Starting an Online Consulting Business
+												</a>
+											</h3>
+											<p class="news-meta">
+												Posted By:  <span>Mick Steven</span>  //  On <span>12th June, 2017</span>
+											</p>
+											<!-- <a href="#" class="learn-btn">
+												saber más
+											</a> -->
+										</div><!--/.news-box-inner-->
+									</div><!--/.single-news-box-->
+								</div><!--.col-->
+								<div class="col-md-4 col-sm-6">
+									<div class="single-news-box">
+										<div class="news-box-bg">
+											<img src="assets/images/blog/bl2.jpg" alt="blog image">
+											<div class="isotope-overlay">
+												<a href="blog_single.html">
+													<span class="lnr lnr-link"></span>
+													
+												</a>
+											</div>
+										</div><!--/.team-box-bg-->
+										<div class="news-box-inner">
+											<h3>
+												<a href="blog_single.html">
+													8 Secrets for Your successful Business Mentor Won't Tell You
+												</a>
+											</h3>
+											<p class="news-meta">
+												Posted By:  <span>Mick Steven</span>  //  On <span>12th June, 2017</span>
+											</p>
+											<!-- <a href="#" class="learn-btn">
+												saber más
+											</a> -->
+										</div><!--/.news-box-inner-->
+									</div><!--/.single-news-box-->
+								</div><!--.col-->
+								<div class="col-md-4 col-sm-6">
+									<div class="single-news-box">
+										<div class="news-box-bg">
+											<img src="assets/images/blog/bl3.jpg" alt="blog image">
+											<div class="isotope-overlay">
+												<a href="blog_single.html">
+													<span class="lnr lnr-link"></span>
+													
+												</a>
+											</div>
+										</div><!--/.team-box-bg-->
+										<div class="news-box-inner">
+											<h3>
+												<a href="blog_single.html">
+													Hire a Branding Consultant With a Similar Aesthetic to Your Own
+												</a>
+											</h3>
+											<p class="news-meta">
+												Posted By:  <span>Mick Steven</span>  //  On <span>12th June, 2017</span>
+											</p>
+											<!-- <a href="#" class="learn-btn">
+												saber más
+											</a> -->
+										</div><!--/.news-box-inner-->
+									</div><!--/.single-news-box-->
+								</div><!--.col-->
+							</div><!--/.row-->
+							<div class="project-btn text-center">
+								<a href="blog.html"  class="project-view">read more
+								</a>
+							</div><!--/.project-btn-->
+					</div><!--/.news-card-->
+					
+				</div><!--/news-details-->
+			</div><!--/.container-->
+		</section><!--/news-->
+		<!--news end-->
+		<!--BLOG-FIN-->
+
+		<!-- JQUERY LINK -->
+
+		<script src="assets/js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        
+        <!--modernizr.min.js-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>		
+		
+		<!--bootstrap.min.js-->
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="assets/js/bootsnav.js"></script>
+		
+		<!-- for manu -->
+		<script src="assets/js/jquery.hc-sticky.min.js" type="text/javascript"></script>
+		
+		<!-- vedio player js -->
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+        <!--owl.carousel.js-->
+        <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+		
+		<!-- counter js -->
+		<script src="assets/js/jquery.counterup.min.js"></script>
+		<script src="assets/js/waypoints.min.js"></script>
+		
+        <!--Custom JS-->
+        <script type="text/javascript" src="assets/js/jak-menusearch.js"></script>
+        <script type="text/javascript" src="assets/js/custom.js"></script>
+
+{% endblock %}

@@ -1,0 +1,207 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Agenda
+{% endblock %}
+
+{% block body %}
+<!--
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+-->
+<!-- AGENDA - INICIO ************************************************************************************-->
+		<section class="about-us">
+			<div class="container">
+				<div class="row justify-content-around">
+    				<div class="col-sm-12"> 										
+						<h2 style="text-align: center">Agenda - Próximos eventos</h2>
+						<br><br>						
+						
+						{% if eventos is defined %}	
+								<table class="table table-striped">
+								<thead style="color: #1c6074;"> 
+						<!-- 	
+							<table class="table table-hover">															
+								<thead class="table-light">
+								-->
+								
+									<th>ID 		 </th>
+									<th>Evento   </th>
+									<th>Fecha    </th>
+									<th>Hora     </th>
+									<th>Calle    </th>
+									<th>nº       </th>
+									<th>Localidad</th>
+									<th>Provincia</th>
+									<th>País     </th>
+								</thead>
+						
+								<tbody>
+									{% for evento in eventos %}
+										<tr>
+										<th scope="row">{{ evento.idAgenda   }}</td>
+										<td>{{ evento.nombreAgenda     }}</td>
+										<td>{{ evento.fechaAgenda      }}</td>
+										<td>{{ evento.horaAgenda       }}</td>										
+										<td>{{ evento.calleAgenda      }}</td>
+										<td>{{ evento.numeroAgenda     }}</td>
+										<td>{{ evento.localidadAgenda  }}</td>
+										<td>{{ evento.provinciaAgenda  }}</td>
+										<td>{{ evento.paisAgenda       }}</td>
+
+										{% if rolUsuario == 'admin' %}																					
+											<td><a style="font-weight: bold" href="{{ path('borrarEvento', {id: evento.idAgenda}) }}"> BORRAR </a></td>                  			
+										{% endif %}
+										</tr> 									
+									{% endfor %}
+								</tbody> 															
+							</table>	
+											
+						{% endif %}
+						<br>
+						{% if rolUsuario == 'admin' %}
+							<div style="text-align: center">
+							<a style="font-weight: bold; " href="#" data-toggle="modal" data-target="#agregarEvento">AÑADIR EVENTO</a> 
+							&nbsp; / &nbsp;
+							<a style="font-weight: bold" href="#" data-toggle="modal" data-target="#modificarEvento">MODIFICAR EVENTO</a>
+							</div> 
+							<br><br>
+							{% if mensajeAgenda is defined %}
+
+								{% if tipo == 'acierto' %}
+									<div class="acierto">								
+										&nbsp; {{ mensajeAgenda }} &nbsp;
+									</div>									
+								{% else %}
+									<div class="error">								
+										&nbsp; {{ mensajeAgenda }} &nbsp;
+									</div>
+								{% endif %}	
+							{% endif %}	
+						{% endif %}																																				
+																							
+						<!-- modal- AÑADIR-EVENTO-INICIO -->
+						<div class="modal fade bs-example-modal-lg" id="agregarEvento" tabindex="-1" role="dialog" aria-labelledby="agregarEvento">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											
+											<h4 class="modal-title" id="agregarEvento" style="text-align: center;">
+												Añadir evento
+											</h4> 
+											 
+											<form class="sm-frm" style="padding:25px" method="POST" action="{{ path('agregarEvento') }}">
+														
+												<label>Nombre :</label>
+												<input name="nombre" type="text" class="form-control" placeholder="Nombre">
+												<label>Fecha :</label>												
+												<input name="fecha" type="date" class="form-control" placeholder="Fecha">
+												<label>Hora :</label>												
+												<input name="hora" type="time" class="form-control" placeholder="Hora">
+												<label>Calle :</label>
+												<input name="calle" type="text" class="form-control" placeholder="Calle">
+												<label>Número :</label>
+												<input name="numero" type="text" class="form-control" placeholder="Número">
+												<label>Localidad :</label>
+												<input name="localidad" type="text" class="form-control" placeholder="Localidad">
+												<label>Provincia :</label>
+												<input name="provincia" type="text" class="form-control" placeholder="Provincia">
+												<label>País:</label>
+												<input name="pais" type="text" class="form-control" placeholder="País">				
+
+												<button style="background-color: #034153; color:  #80d5f0;	border-color: #034153;" type="submit" class="btn btn-default pull-right"> Añadir </button>
+												
+											</form>
+										</div>
+									</div>
+								</div>
+						</div>
+						<!--  modal - AÑADIR-EVENTO-FIN -->													
+
+						<!--  modal - MODIFICAR EVENTO-INICIO -->					
+						
+						<div class="modal fade bs-example-modal-lg" id="modificarEvento" tabindex="-1" role="dialog" aria-labelledby="modificarEvento">
+								<div class="modal-dialog modal-lg" role="document">
+									<div class="modal-content">
+										<div class="modal-header">											
+											<h4 class="modal-title" id="modificarEvento" style="text-align: center;">
+												Modificar evento
+											</h4> 
+											<form class="sm-frm" style="padding:25px" method="POST" action="{{ path('cambiarEvento') }}">
+												<label>ID</label>
+												
+												<input name="id" type="text" class="form-control">
+												<label>Nuevo nombre :</label>
+												<input name="nombre" type="text" class="form-control" placeholder="Nombre">
+												<label>Nueva fecha :</label>												
+												<input name="fecha" type="date" class="form-control" placeholder="Fecha">
+												<label>Nueva hora :</label>												
+												<input name="hora" type="time" class="form-control" placeholder="Hora">
+												<label>Nueva calle :</label>
+												<input name="calle" type="text" class="form-control" placeholder="Calle">
+												<label>Nuevo número :</label>
+												<input name="numero" type="text" class="form-control" placeholder="Número">
+												<label>Nueva localidad :</label>
+												<input name="localidad" type="text" class="form-control" placeholder="Localidad">
+												<label>Nueva provincia :</label>
+												<input name="provincia" type="text" class="form-control" placeholder="Provincia">
+												<label>Nuevo país:</label>
+												<input name="pais" type="text" class="form-control" placeholder="País">								
+														
+												<button style="background-color: #034153; color:  #80d5f0;	border-color: #034153;" type="submit" class="btn btn-default pull-right"> Modificar </button>
+											</form>
+										</div>
+									</div>
+								</div>	
+						</div>					
+						
+					</div><!--<div class="col-sm-8"> -->
+					<!-- modal - MODIFICAR EVENTO-FIN -->				
+
+					<!-- FOTO AGENDA -->
+					<!--
+					<div class="col-sm-4">					
+						<img src="assets/images/agenda/agenda.jpg" alt="agenda">								
+					</div>	
+					-->										
+					
+				</div><!--/ROW-->
+			</div><!--/.container-->
+		</section><!--/.about-us-->	
+
+	<!-- AGENDA - INICIO ************************************************************************************-->
+
+		<!-- JQUERY LINK -->
+
+		<script src="assets/js/jquery.js"></script>
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        
+        <!--modernizr.min.js-->
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>		
+		
+		<!--bootstrap.min.js-->
+        <script type="text/javascript" src="assets/js/bootstrap.min.js"></script>
+		
+		<!-- bootsnav js -->
+		<script src="assets/js/bootsnav.js"></script>
+		
+		<!-- for manu -->
+		<script src="assets/js/jquery.hc-sticky.min.js" type="text/javascript"></script>
+		
+		<!-- vedio player js -->
+		<script src="assets/js/jquery.magnific-popup.min.js"></script>
+
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+
+        <!--owl.carousel.js-->
+        <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+		
+		<!-- counter js -->
+		<script src="assets/js/jquery.counterup.min.js"></script>
+		<script src="assets/js/waypoints.min.js"></script>
+		
+        <!--Custom JS-->
+        <script type="text/javascript" src="assets/js/jak-menusearch.js"></script>
+        <script type="text/javascript" src="assets/js/custom.js"></script>
+
+{% endblock %}
